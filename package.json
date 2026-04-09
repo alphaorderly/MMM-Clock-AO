@@ -1,6 +1,6 @@
 {
   "name": "mmm-clock-ao",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "MagicMirror2 module using React for UI rendering",
   "main": "MMM-Clock-ao.js",
   "type": "module",
