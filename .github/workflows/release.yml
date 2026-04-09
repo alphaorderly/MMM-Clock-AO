@@ -3,14 +3,14 @@ name: Build & Release Module
 on:
   push:
     tags:
-      - 'v*.*.*'        # e.g. v0.2.0, v1.0.0
+      - "v*.*.*" # e.g. v0.2.0, v1.0.0
   workflow_dispatch: {}
 
 jobs:
   build-release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # needed for creating a release
+      contents: write # needed for creating a release
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,8 +18,8 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'yarn'
+          node-version: 22
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
