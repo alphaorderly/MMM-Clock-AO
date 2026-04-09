@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MagicMirror Module Test - ReactSample</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Roboto Condensed", sans-serif;
+        background-color: #000;
+        color: #aaa;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      .mmm-clock-ao-root {
+        display: block;
+      }
+
+      .mmm-clock-ao-app {
+        text-align: center;
+      }
+
+      .mmm-clock-ao-app h2 {
+        color: #fff;
+        font-size: 24px;
+        margin: 0 0 10px 0;
+      }
+
+      .mmm-clock-ao-app p {
+        margin: 5px 0;
+      }
+
+      /* MagicMirror 스타일 시뮬레이션 */
+      .magic-mirror-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="magic-mirror-container">
+      <div class="mmm-clock-ao-root"></div>
+    </div>
+
+    <script>
+      const testConfig = {
+        dev: true,
+        updateInterval: 30000,
+        latitude: 36.549638,
+        longitude: 128.73416,
+        timezone: "Asia/Seoul",
+        weatherRefreshInterval: 600000,
+        temperatureUnit: "celsius",
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Console에 테스트 환경 정보 출력
+        console.log("🪞 MagicMirror Module Test Environment");
+        console.log("📋 Test Config:", testConfig);
+
+        const root = document.querySelector(".mmm-clock-ao-root");
+        if (root) {
+          root.dataset.config = JSON.stringify(testConfig);
+        }
+      });
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
