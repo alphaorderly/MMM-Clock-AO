@@ -89,15 +89,11 @@ export function WeatherDisplay({
           e.stopPropagation();
           onRetry?.();
         }}
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          onRetry?.();
-        }}
       >
-        <span className="text-[12px] font-light opacity-50 tracking-wide">
+        <span className="text-[14px] font-light opacity-75 tracking-wide">
           날씨를 불러오지 못했습니다
         </span>
-        <span className="text-[11px] font-light opacity-35 tracking-widest">
+        <span className="text-[12px] font-light opacity-55 tracking-widest">
           터치하여 다시 시도
         </span>
       </div>
@@ -116,25 +112,25 @@ export function WeatherDisplay({
         <span className="text-[26px] font-light tabular-nums leading-none">
           {formatTemp(weather.temperature, unit)}
         </span>
-        <span className="text-[13px] font-light opacity-60 tracking-wide">{labelKo}</span>
+        <span className="text-[16px] font-light opacity-80 tracking-wide">{labelKo}</span>
       </div>
 
       {/* Secondary stats row */}
-      <div className="flex items-center gap-3 text-[11px] font-light opacity-50 tracking-wide flex-wrap justify-center">
+      <div className="flex items-center gap-3 text-[15px] font-light opacity-80 tracking-wide flex-wrap justify-center">
         <span>체감&nbsp;{formatTemp(weather.apparentTemperature, unit)}</span>
-        <span className="opacity-30">·</span>
+        <span className="opacity-50">·</span>
         <span>습도&nbsp;{weather.humidity}%</span>
-        <span className="opacity-30">·</span>
+        <span className="opacity-50">·</span>
         <span>강수&nbsp;{weather.precipitationProbability}%</span>
-        <span className="opacity-30">·</span>
+        <span className="opacity-50">·</span>
         <span className="flex items-center gap-1">
-          <Wind size={11} strokeWidth={1.5} className="opacity-70" />
+          <Wind size={11} strokeWidth={1.5} className="opacity-90" />
           {Math.round(weather.windSpeed)}km/h
         </span>
       </div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent my-0.5" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent my-0.5" />
 
       {/* 3-day forecast */}
       {daily.length > 0 && (
@@ -143,17 +139,17 @@ export function WeatherDisplay({
             const { iconName: dIconName } = getWMOInfo(d.weatherCode, true);
             return (
               <div key={d.date} className="flex flex-col items-center gap-0.5">
-                <span className="text-[12px] font-light opacity-80 tracking-wide">
+                <span className="text-[15px] font-light opacity-90 tracking-wide">
                   {formatForecastDate(d.date)}
                 </span>
-                <WeatherIcon name={dIconName} size={18} />
-                <div className="flex items-center gap-1 text-[11px] tabular-nums font-light">
+                <WeatherIcon name={dIconName} size={22} />
+                <div className="flex items-center gap-1 text-[15px] tabular-nums font-light">
                   <span>{Math.round(d.maxTemp)}°</span>
-                  <span className="opacity-30">/</span>
-                  <span className="opacity-50">{Math.round(d.minTemp)}°</span>
+                  <span className="opacity-50">/</span>
+                  <span className="opacity-70">{Math.round(d.minTemp)}°</span>
                 </div>
                 {d.precipitationProbability > 0 && (
-                  <span className="text-[9px] opacity-40 tracking-wide">
+                  <span className="text-[14px] opacity-80 tracking-wide">
                     {d.precipitationProbability}%
                   </span>
                 )}

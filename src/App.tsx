@@ -52,7 +52,7 @@ export default function App(): JSX.Element {
   return (
     <div
       className="text-center font-sans text-white px-4 pt-0 pb-2 cursor-pointer select-none"
-      onTouchStart={cycleView}
+      onClick={cycleView}
     >
       {view === "main" ? (
         <>

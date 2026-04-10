@@ -33,13 +33,13 @@ export function ClockDisplay({ now }: { now: Date }) {
         <div className="w-px bg-white/15 self-stretch mx-1" />
         {/* 초 */}
         <div className="flex items-center px-4">
-          <span className="tabular-nums text-[40px] font-extralight leading-none opacity-45">
+          <span className="tabular-nums text-[40px] font-extralight leading-none opacity-60">
             {s}
           </span>
         </div>
       </div>
       {/* date */}
-      <div className="text-[12px] font-light tracking-[0.08em] opacity-50 mt-1">
+      <div className="text-[15px] font-light tracking-[0.08em] opacity-75 mt-1">
         {year}년 {month}월 {day}일&nbsp;{weekday}
       </div>
     </div>
